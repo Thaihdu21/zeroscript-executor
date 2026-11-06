@@ -1,0 +1,30 @@
+# Build artifacts
+dist/
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Lockfiles (bun is packageManager)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Editors / OS
+.cursor/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Env / local
+.env
+.env.*
+!.env.example
+*.log
+.cache/
+
+# Research notes (not shipped)
+research/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { width: 268px; margin: 0; font-family: "Segoe UI", sans-serif; background: #16161a; color: #e8e8ec; }
+    .wrap { padding: 14px; }
+    h1 { font-size: 14px; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    .ver { font-size: 9.5px; font-weight: 500; letter-spacing: 0.2px;
+           color: rgba(255,255,255,0.55); background: none; border: none;
+           padding: 0; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #6b7280; }
+    .dot.on { background: #34d399; box-shadow: 0 0 8px #34d399; }
+    .dot.warn { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
+    .row { font-size: 12px; opacity: 0.85; margin: 6px 0; }
+    button { width: 100%; margin-top: 8px; padding: 8px; border: 0; border-radius: 8px; cursor: pointer; font-size: 12px; }
+    .ghost { background: rgba(255,255,255,0.08); color: #e8e8ec; }
+    .kofi { background: rgba(255,105,135,.16); color: #ff8fa3; border: 1px solid rgba(255,105,135,.4) !important; font-weight: 700; }
+    code { background: rgba(255,255,255,0.08); padding: 1px 5px; border-radius: 4px; }
+    details { margin-top: 8px; }
+    summary { font-size: 11.5px; opacity: 0.85; cursor: pointer; user-select: none; }
+    #server-url { width: 100%; box-sizing: border-box; margin-top: 6px; padding: 7px 8px; border-radius: 8px;
+                  border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.07);
+                  color: #e8e8ec; font-size: 11.5px; font-family: ui-monospace, monospace; }
+    #server-url:focus { outline: 1px solid #34d399; }
+    .srv-row { display: flex; gap: 6px; }
+    .srv-row button { flex: 1; }
+    #cfg-state { font-size: 10.5px; opacity: 0.75; min-height: 14px; margin: 6px 0 0; }
+    .hint { font-size: 10px; opacity: 0.55; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1><span id="dot" class="dot"></span> ZeroScript <span id="ver" class="ver"></span> <span style="font-size:9px;opacity:.6">Executor</span></h1>
+    <div class="row" id="state">MCP server: …</div>
+    <div class="row" id="tools"></div>
+    <div class="row" id="servers" style="white-space:pre-line; font-family:ui-monospace,monospace; opacity:0.75"></div>
+    <button class="ghost" id="reconnect">↻ Reconnect</button>
+    <details id="srv-box">
+      <summary>MCP server address</summary>
+      <input id="server-url" type="text" spellcheck="false" autocomplete="off"
+             placeholder="http://127.0.0.1:16384" />
+      <div class="srv-row">
+        <button class="ghost" id="server-save">Save</button>
+        <button class="ghost" id="server-reset">Reset</button>
+      </div>
+      <div class="row" id="cfg-state"></div>
+      <div class="row hint">Only change this if your server is NOT on
+        <code>127.0.0.1:16384</code> (another PC or port, or your own MCP
+        server with the same API). Port defaults to 16384.
+        ⚠ Keep it on localhost — port 16384 has no authentication.</div>
+    </details>
+    <button class="ghost" id="settings">⚙ Settings</button>
+    <button class="kofi" id="kofi">♥ Tip the developer on Ko-fi</button>
+    <div class="row" style="margin-top:10px; opacity:0.6">
+      Run <code>npm start</code> in <code>roblox-executor-mcp/</code>, connect from Roblox, then open a supported AI.
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+/* Feature-owned styles extracted from dashboard.css. */
+
+.no-client-add-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    flex-shrink: 0; padding: 0 12px; border-radius: var(--radius);
+    background: var(--text); color: var(--bg); border: 1px solid var(--text);
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: opacity var(--transition);
+    white-space: nowrap;
+}
+.no-client-add-btn:hover { opacity: 0.88; }
+.no-client-add-btn svg { flex-shrink: 0; }
+.no-client-add-wrap {
+    position: relative; display: flex; align-self: stretch; flex-shrink: 0;
+}
+.no-client-add-wrap .no-client-add-btn { height: 100%; min-height: 40px; }
+.no-client-add-chevron { transition: transform var(--transition); }
+.no-client-add-btn[aria-expanded="true"] .no-client-add-chevron { transform: rotate(180deg); }
+.no-client-add-menu {
+    position: absolute; z-index: 30; top: calc(100% + 6px); right: 0;
+    width: 180px; padding: 4px; border: 1px solid var(--border);
+    border-radius: 8px; background: var(--surface-raised);
+    box-shadow: 0 4px 8px var(--shadow-soft);
+}
+.no-client-add-menu[hidden] { display: none; }
+.no-client-add-menu button {
+    display: flex; width: 100%; padding: 8px 9px; border: 0;
+    border-radius: 5px; background: transparent; color: var(--text-secondary);
+    font-family: var(--sans); font-size: 13px; text-align: left; cursor: pointer;
+}
+.no-client-add-menu button:hover,
+.no-client-add-menu button:focus-visible {
+    background: var(--surface-hover); color: var(--text); outline: none;
+}
+
+.add-client-modal {
+    max-width: 640px;
+    padding: 0;
+    overflow: hidden;
+}
+.add-client-modal-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; margin: 0; padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--border);
+}
+.add-client-modal-header .modal-title {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.add-client-modal-header .modal-desc {
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 1.35;
+}
+.add-client-modal-header .modal-desc[hidden] {
+    display: none;
+}
+.add-client-modal-desc--mono {
+    font-family: var(--mono);
+    color: var(--text-secondary);
+}
+.add-client-body {
+    padding: 16px 18px;
+}
+.add-client-options {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+}
+.add-client-option {
+    width: 100%; min-height: 318px;
+    display: grid; grid-template-rows: 1fr auto auto;
+    justify-items: center; align-items: end; gap: 12px; padding: 28px 20px 20px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: var(--radius); color: var(--text);
+    font-family: var(--sans); text-align: center; cursor: pointer;
+    transition: all var(--transition);
+}
+.add-client-option:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-light);
+}
+.add-client-option-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--text-tertiary);
+    align-self: center;
+}
+.add-client-option-icon svg {
+    width: 92px; height: 92px;
+}
+.add-client-option-title {
+    display: block; font-size: 16px; font-weight: 600;
+}
+.add-client-option-desc {
+    display: block; margin-top: 6px;
+    font-size: 13px; color: var(--text-secondary); line-height: 1.4;
+}
+.add-client-option-meta {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--text-tertiary); font-size: 12px;
+}
+.add-client-panel {
+    display: grid; gap: 10px;
+}
+.add-client-panel--compact {
+    gap: 8px;
+}
+.add-client-step-head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+}
+.add-client-step-copy {
+    display: grid; gap: 4px;
+}
+.add-client-step-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+}
+.add-client-step-sub {
+    font-size: 13px; color: var(--text-secondary); line-height: 1.45;
+}
+.add-client-bridge-badge {
+    display: inline-block; padding: 1px 6px; border-radius: 4px;
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--text); font-family: var(--mono); font-size: 12px;
+}
+.add-client-hint {
+    margin: 0; color: var(--text-secondary); font-size: 13px; line-height: 1.5;
+}
+.add-client-hint--inline {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text-tertiary);
+}
+.add-client-hint--warn {
+    color: var(--amber);
+}
+.add-client-callout {
+    margin: 0; padding: 8px 10px; border-radius: 6px;
+    background: var(--surface-raised); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 12px; line-height: 1.4;
+}
+.add-client-callout--warn {
+    color: var(--amber);
+    background: var(--amber-dim);
+    border-color: rgba(245,158,11,0.24);
+}
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.add-client-field--compact {
+    gap: 0;
+}
+.add-client-top-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.add-client-back {
+    display: inline-flex; align-items: center; gap: 7px;
+    width: max-content; border: none; background: transparent;
+    color: var(--text-secondary); font-family: var(--sans);
+    font-size: 13px; cursor: pointer; padding: 0;
+}
+.add-client-back:hover { color: var(--text); }
+.add-client-link-btn {
+    border: none; background: transparent; color: var(--text-secondary);
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    cursor: pointer; padding: 0;
+}
+.add-client-link-btn:hover { color: var(--text); }
+.add-client-warning {
+    display: grid; gap: 4px;
+    padding: 12px 14px; border-radius: var(--radius);
+    background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.24);
+    color: var(--amber); font-size: 13px; line-height: 1.45;
+}
+.add-client-warning span {
+    color: var(--text-secondary);
+}
+.add-client-section-title {
+    color: var(--text); font-size: 14px; font-weight: 600;
+}
+.add-client-intent-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+}
+.add-client-intent {
+    display: grid; grid-template-columns: 42px 1fr; gap: 6px 12px;
+    align-items: start; padding: 14px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: transparent; color: var(--text); text-align: left;
+    font-family: var(--sans); cursor: pointer; transition: all var(--transition);
+}
+.add-client-intent:hover {
+    background: var(--surface-hover); border-color: var(--border-light);
+}
+.add-client-intent-icon {
+    grid-row: 1 / 4; display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; color: var(--text-tertiary);
+}
+.add-client-intent-icon svg {
+    width: 26px; height: 26px;
+}
+.add-client-intent-title {
+    font-size: 14px; font-weight: 600; color: var(--text);
+}
+.add-client-intent-desc,
+.add-client-intent-meta {
+    font-size: 12px; line-height: 1.45; color: var(--text-secondary);
+}
+.add-client-intent-meta {
+    color: var(--text-tertiary);
+}
+.add-client-subactions {
+    display: flex; justify-content: flex-end;
+}
+.add-client-selected-target {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px 12px; border: 1px solid var(--border);
+    border-radius: var(--radius); background: var(--surface-raised);
+    color: var(--text-secondary); font-size: 13px;
+}
+.add-client-selected-target span {
+    color: var(--text); font-weight: 600;
+}
+.add-client-target-tabs {
+    display: flex; gap: 6px; width: max-content;
+    padding: 3px; border: 1px solid var(--border);
+    border-radius: 8px; background: var(--bg);
+}
+.add-client-target-tab {
+    min-height: 28px; padding: 4px 10px; border: 1px solid transparent;
+    border-radius: 6px; background: transparent; color: var(--text-secondary);
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all var(--transition);
+}
+.add-client-target-tab:hover {
+    color: var(--text);
+}
+.add-client-target-tab.active {
+    background: var(--surface-raised); border-color: var(--border);
+    color: var(--text);
+}
+.add-client-status {
+    padding: 10px 12px; border-radius: var(--radius);
+    background: var(--surface-raised); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 13px; line-height: 1.45;
+}
+.add-client-status span {
+    color: var(--text-tertiary);
+}
+.add-client-status--warn {
+    color: var(--amber);
+    background: var(--amber-dim);
+    border-color: rgba(245,158,11,0.24);
+}
+.add-client-status--error {
+    color: var(--red);
+    background: var(--red-dim);
+    border-color: rgba(239,68,68,0.24);
+}
+.add-client-status--success {
+    color: var(--green);
+    background: var(--green-dim);
+    border-color: rgba(34,197,94,0.24);
+}
+.add-client-harness-list {
+    display: grid; border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden; background: var(--bg);
+}
+.add-client-harness-target {
+    display: flex; align-items: center; gap: 10px;
+    min-width: 0; padding: 10px 11px; border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+.add-client-harness-target:last-child { border-bottom: 0; }
+.add-client-harness-target:has(input:checked) { background: var(--surface-raised); }
+.add-client-harness-target input {
+    flex-shrink: 0; width: 14px; height: 14px; margin: 0;
+    accent-color: var(--text); cursor: pointer;
+}
+.add-client-harness-copy { display: grid; gap: 2px; min-width: 0; }
+.add-client-harness-name { color: var(--text); font-size: 13px; font-weight: 600; }
+.add-client-harness-reason {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    color: var(--text-tertiary); font-family: var(--mono); font-size: 11px;
+}
+.add-client-field {
+    display: grid; gap: 6px;
+}
+.add-client-field label {
+    color: var(--text-secondary); font-size: 12px; font-weight: 600;
+}
+.add-client-input-row {
+    display: flex; gap: 8px;
+}
+.add-client-input {
+    flex: 1; min-width: 0; padding: 8px 10px; border-radius: 6px;
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--text); font-family: var(--mono); font-size: 13px;
+    outline: none;
+}
+.add-client-input:focus { border-color: var(--border-light); }
+.add-client-code-wrap {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; background: var(--bg);
+}
+.add-client-code-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 8px 10px; border-bottom: 1px solid var(--border);
+    background: var(--surface-raised); color: var(--text-tertiary);
+    font-size: 12px;
+}
+.add-client-code-label {
+    color: var(--text-secondary); font-weight: 600;
+}
+.add-client-code {
+    margin: 0; padding: 12px; white-space: pre-wrap; overflow-x: auto;
+    font-family: var(--mono); font-size: 12px; line-height: 1.55;
+    color: var(--text-secondary);
+}
+.add-client-code-line {
+    display: block;
+    min-height: 1.55em;
+}
+.add-client-code-line--add {
+    color: var(--green);
+}
+.add-client-result {
+    display: grid; gap: 6px;
+}
+.add-client-autoexec {
+    display: grid; gap: 10px;
+    padding-top: 6px; border-top: 1px solid var(--border);
+}
+.add-client-autoexec-head {
+    display: grid; gap: 2px;
+}
+.add-client-autoexec-title {
+    font-size: 13px; font-weight: 600; color: var(--text);
+}
+.add-client-autoexec-desc {
+    font-size: 12px; color: var(--text-tertiary); line-height: 1.45;
+}
+.add-client-autoexec-list {
+    border: 1px solid var(--border); border-radius: 6px;
+    overflow: hidden; background: var(--bg);
+}
+.add-client-autoexec-select-all {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-bottom: 1px solid var(--border);
+    background: var(--surface-raised); cursor: pointer;
+    font-size: 12px; font-weight: 600; color: var(--text-secondary);
+}
+.add-client-autoexec-targets {
+    display: grid;
+}
+.add-client-autoexec-target {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-bottom: 1px solid var(--border);
+    background: transparent; cursor: pointer;
+}
+.add-client-autoexec-target:last-child {
+    border-bottom: none;
+}
+.add-client-autoexec-target.is-selected,
+.add-client-autoexec-target:has(input:checked) {
+    background: var(--surface-raised);
+}
+.add-client-autoexec-check {
+    flex-shrink: 0; width: 14px; height: 14px; margin: 0;
+    accent-color: var(--text); cursor: pointer;
+}
+.add-client-autoexec-target-main {
+    display: grid; gap: 2px; min-width: 0;
+}
+.add-client-autoexec-name {
+    font-size: 13px; font-weight: 600; color: var(--text);
+}
+.add-client-autoexec-path {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-family: var(--mono); font-size: 11px; color: var(--text-tertiary);
+}
+.add-client-autoexec-note {
+    flex-shrink: 0; font-size: 11px; color: var(--amber);
+}
+.add-client-actions {
+    display: flex; flex-wrap: wrap; gap: 8px;
+}
+.add-client-actions--compact {
+    gap: 6px;
+}
+.add-client-actions--compact .add-client-btn {
+    min-height: 28px;
+    padding: 4px 10px;
+    font-size: 12px;
+}
+.add-client-actions--nested {
+    margin-top: 8px;
+}
+.add-client-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    min-height: 32px; padding: 6px 11px; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--surface-raised);
+    color: var(--text-secondary); font-family: var(--sans);
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all var(--transition);
+}
+.add-client-btn:hover:not(:disabled) {
+    border-color: var(--border-light);
+    color: var(--text);
+}
+.add-client-btn:disabled {
+    opacity: 0.5; cursor: not-allowed;
+}
+.add-client-btn--primary {
+    background: var(--text); color: var(--bg); border-color: var(--text);
+}
+.add-client-btn--primary:hover:not(:disabled) {
+    color: var(--bg); opacity: 0.9;
+}
+.add-client-btn--ghost {
+    min-height: 28px; padding: 4px 8px; font-size: 12px;
+    background: transparent;
+}
+.add-client-guide {
+    margin: 0; padding-left: 18px; color: var(--text-secondary);
+    font-size: 13px; line-height: 1.6;
+}
+.add-client-guide a { color: var(--blue); text-decoration: none; }
+.add-client-guide a:hover { text-decoration: underline; }
+.add-client-output {
+    max-height: 120px; overflow: auto; padding: 10px; border-radius: 6px;
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--text-tertiary); font-family: var(--mono);
+    font-size: 12px; line-height: 1.45; white-space: pre-wrap;
+}
+
+@media (max-width: 860px) {
+    .add-client-modal {
+        max-width: calc(100vw - 28px);
+        max-height: calc(100vh - 28px);
+        overflow-y: auto;
+    }
+    .add-client-modal-header {
+        padding: 12px 16px 10px;
+    }
+    .add-client-body {
+        padding: 14px 16px;
+    }
+    .add-client-options,
+    .add-client-intent-grid {
+        grid-template-columns: 1fr;
+    }
+    .add-client-option {
+        min-height: 188px;
+        padding: 22px 18px;
+    }
+    .add-client-option-icon svg {
+        width: 64px;
+        height: 64px;
+    }
+    .add-client-top-row,
+    .add-client-selected-target {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .add-client-target-tabs {
+        width: 100%;
+    }
+    .add-client-target-tab {
+        flex: 1;
+    }
+}
+
+@media (max-width: 680px) {
+    .no-client-add-btn { min-height: 40px; }
+    .add-client-modal { max-height: calc(100vh - 32px); overflow-y: auto; }
+    .add-client-options,
+    .add-client-intent-grid { grid-template-columns: 1fr; }
+    .add-client-option { min-height: 188px; padding: 22px 18px; }
+    .add-client-option-icon svg { width: 64px; height: 64px; }
+    .add-client-input-row { flex-direction: column; }
+    .add-client-top-row { align-items: flex-start; flex-direction: column; }
+}
